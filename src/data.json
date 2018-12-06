@@ -1,0 +1,4 @@
+{
+    "fuelTypes": ["Benzyna", "Benzyna + LPG", "Diesel", "Elektryczny"],
+    "origin": ["Amerykańskie", "Angielskie", "Francuskie", "Włoskie", "Niemieckie", "Szweckie", "Japońskie"]
+}

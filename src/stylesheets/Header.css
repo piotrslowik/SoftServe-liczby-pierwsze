@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Norican');
+
+.Header {
+    position: relative;
+    padding: 10px;
+    max-width: 1860px;
+}
+
+.Header-dashboard {
+    display: grid;
+    grid-template-columns: 280px 1fr 100px 700px;
+    background: #383C44;
+}
+
+.Header-logo {
+    text-align: center;
+    font-size: 30px;
+    margin: 4px 10px;
+    color: #61dafb;
+    font-family: 'Play', sans-serif;
+}
+
+.Header-logo p {
+    margin: 0;
+}
+
+.luxury {
+    font-size: .5em;
+    font-family: 'Norican', cursive;
+    letter-spacing: 8px;
+}
+
+.Header-search {
+    font-size: 15px;
+    margin: 5px 0;
+    padding: 0 20px;
+    background: #AAA;
+    border: 1px solid #61dafb;
+    font-size: 20px;
+}
+
+.Header__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 120px;
+}
+
+.Header-dashboard button {
+    width: 160px;
+    font-size: 18px;
+    border-radius: 5px;
+    font-family: 'Play', sans-serif;
+    font-weight: bold;
+    color: #283a5e;
+}
+
+.Header-dashboard button:hover {
+    color: white;
+    transition: all .15s;
+    background: darkblue;
+    border-color: #283a5e;
+}
+
+.button-add {
+    background: #faf76a;
+    border: 2px solid #d8d643;
+}
+
+.button-register, .button-login {
+    background: #61dafb;
+    border: 2px solid #4dbbda;
+}
+
+.Header .button-filters {
+    background: #CCC;
+    border: 2px solid #AAA;
+    margin: 5px;
+    width: 100px;
+}

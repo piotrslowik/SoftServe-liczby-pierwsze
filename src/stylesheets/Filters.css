@@ -1,0 +1,51 @@
+
+.Filters {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    width: 100%;
+    height: 50px;
+    z-index: -1;
+    position: relative;
+    top: -50px;
+    height: 0;
+}
+
+.Filters--hidden {
+    animation-name: hideFilters;
+    animation-duration: .7s;
+    animation-fill-mode: both;
+}
+
+.Filters--visible {
+    animation-name: showFilters;
+    animation-duration: .7s;
+    animation-fill-mode: both;
+}
+
+.Filters .LabelledSelect:not(:first-child) {
+    margin-left: 50px;
+}
+
+@keyframes showFilters {
+    0% {
+        top: -50px;
+        height: 0;
+    }
+    100% {
+        top: 0;
+        height: 50px;
+        z-index: 0;
+    }
+}
+
+@keyframes hideFilters {
+    0% {
+        top: 0;
+        height: 50px;
+    }
+    100% {
+        top: -50px;
+        height: 0;
+    }
+}

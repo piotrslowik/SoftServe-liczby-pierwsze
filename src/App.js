@@ -1,26 +1,53 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+
+import Header from './components/Header'
+import Body from './components/Body'
+import Footer from './components/Footer'
+import ModalAddCar from './components/Modals/Modal_AddCar'
+
+import './stylesheets/App.css';
 
 class App extends Component {
+
+  state = {
+    filterInput: '',
+    isAddCarModalVisible: false
+  }
+
+  handleFilter = (e) => {
+    this.setState (
+      {
+        filterInput: e.target.value
+      }
+    )
+  }
+
+  closeModal = () => {
+    document.body.style = 'overflow: initial; padding-right: 0px;'
+    this.setState (
+      {
+        isAddCarModalVisible: false
+      }
+    )
+  }
+
+  showModal = () => {
+    document.body.style = 'overflow: hidden; padding-right: 15px;'
+    this.setState (
+      {
+        isAddCarModalVisible: true
+      }
+    )
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <div className="App">
+            <Header onFilter={this.handleFilter} onShowModal={this.showModal}/>
+            <Body filterInput={this.state.filterInput} />
+            <Footer />
+            {this.state.isAddCarModalVisible ? <ModalAddCar onCloseModal={this.closeModal} /> : null}
+        </div>
     );
   }
 }

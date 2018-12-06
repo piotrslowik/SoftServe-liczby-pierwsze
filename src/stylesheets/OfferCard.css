@@ -1,0 +1,114 @@
+.OfferCard {
+    height: 200px;
+    width: 1000px;
+    background: #AAA;
+    display: flex;
+}
+
+.OfferCard:hover {
+    filter: brightness(110%);
+    transition: filter .3s;
+}
+
+.image {
+    position: relative;
+}
+
+.image:hover .image__overlay {
+    bottom: 0;
+    height: 100%;
+}
+
+.image__pic {
+    height: 100%;
+    width: 400px;
+    object-fit: cover;
+}
+
+.image__overlay {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background-color: #283A5E;
+    filter: opacity(.8);
+    overflow: hidden;
+    width: 100%;
+    height:0;
+    transition: .3s ease;
+  }
+
+.image__text {
+    width: 80%;
+    text-align: justify;
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.details {
+    margin-left: 30px;
+    width: 100%;
+    font-size: 18px;
+}
+
+.details__header {
+    display: grid;
+    grid-template-rows: 30px 35px;
+    grid-row-gap: 7px;
+    margin-top: 20px;
+}
+
+.details__make {
+    font-size: 1.4em;
+    margin: 0;
+    text-transform: uppercase;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+}
+
+.details__model {
+    font-size: 1.7em;
+    margin: 0;
+    text-transform: uppercase;
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+}
+
+.details__price {
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+    text-align: right;
+    margin-right: 30px;
+    margin-top: 0px;
+    font-size: 2em;
+    font-weight: 500;
+    color: #283A5E;
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
+
+.details__price--pln {
+    font-size: .6em;
+    margin-left: 5px;
+}
+
+.details__engine {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 200px 20px 0;
+    font-size: 1.1em
+}
+
+.details__bottom p, .details__engine p {
+    margin: 0;
+}
+
+.details__bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50%;
+}

@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Play');
+
+body {
+  background-color: #383c44;
+}
+.App {
+  box-sizing: border-box;
+  min-height: 100vh;
+}

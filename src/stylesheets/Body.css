@@ -1,0 +1,9 @@
+.Body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Body .OfferCard {
+  margin-top: 30px;
+}

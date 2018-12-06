@@ -1,0 +1,19 @@
+.LabelledSelect {
+    display: flex;
+    flex-direction: row;
+}
+
+.LabelledSelect select {
+    padding: 10px;
+    font-size: 20px;
+    width: 168px;
+}
+
+.LabelledSelect label {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+    color: #CCC;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, .5)
+}

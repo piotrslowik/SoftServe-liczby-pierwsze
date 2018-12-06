@@ -1,0 +1,45 @@
+.new-car-offer-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 80px;
+    width: 560px;
+}
+
+.confirm-buttons button {
+    width: 160px;
+    height: 70px;
+    font-size: 18px;
+    border-radius: 5px;
+    font-family: 'Play', sans-serif;
+    font-weight: bold;
+    color: #283a5e;
+}
+
+.confirm-buttons button:hover {
+    background: darkblue;
+    border-color: #283a5e;
+    color: white;
+    transition: all .15s;
+}
+
+.confirm-buttons .button__confirm {
+    background: #faf76a;
+    border: 2px solid #d8d643;
+}
+
+.confirm-buttons .button__return {
+    background: rgb(255, 148, 148);;
+    border: 2px solid rgb(255, 98, 98);;
+}
+
+.confirm-buttons .button__return:hover {
+    background: rgb(255, 68, 68);
+    border: 2px solid #ce1b1b;
+}
