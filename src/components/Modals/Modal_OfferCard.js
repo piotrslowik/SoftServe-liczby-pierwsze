@@ -3,6 +3,7 @@ import '../../stylesheets/Modals/Modal_OfferCard.css'
 
 import Modal from './Modal'
 import OfferCard from '../OfferCard'
+import Button from '../Fields/Button';
 
 class Modal_OfferCard extends Component {
     render() {
@@ -11,8 +12,8 @@ class Modal_OfferCard extends Component {
                 <div className="new-car-offer-card">
                     <OfferCard car={this.props.car} />
                     <div className="confirm-buttons">
-                        <button className="button__return" onClick={this.props.onReturn}>Wróć</button>
-                        <button className="button__confirm" onClick={this.handleAddCar}>Dodaj</button>
+                        <Button className="button-red" onClick={this.props.onReturn} text="Wróć" />
+                        <Button className="button-yellow" onClick={this.handleAddCar} text="Dodaj" />
                     </div>
                 </div>
             </Modal>

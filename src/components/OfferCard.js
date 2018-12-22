@@ -8,17 +8,16 @@ class OfferCard extends Component {
   constructor(props) {
     super(props);
     this.state = this.props.car
-    this.state.price = this.formatPrice(this.props.car.price)
   }
 
-  formatPrice = (price) => {
+  formatNumber = (number) => {
     let spaceIterator = 0;
-    let string = price.toString();
+    let string = number.toString();
     let output = "";
     for (let i = string.length - 1; i >= 0; i--) {
         output = string.charAt(i) + output;
         spaceIterator++;
-        if (spaceIterator % 3 == 0 && i != 0) {
+        if (spaceIterator % 3 === 0 && i !== 0) {
             output = " " + output;
         }
     }
@@ -44,7 +43,7 @@ class OfferCard extends Component {
           <div className="details__header">
             <p className="details__make">{this.state.make}</p>
             <p className="details__model">{this.state.model}</p>
-            <p className="details__price">{this.state.price}<span className="details__price--pln"> PLN</span></p>
+            <p className="details__price">{this.formatNumber(this.state.price)}<span className="details__price--pln"> PLN</span></p>
           </div>
           <div className="details__engine">
             <p>{this.state.fuel}</p>
@@ -53,7 +52,7 @@ class OfferCard extends Component {
           </div>
           <div className="details__bottom">
           <p>{this.state.year}</p>
-            <p>{this.state.mileage} km</p>
+            <p>{this.formatNumber(this.state.mileage)} km</p>
           </div>
         </div>
       </div>

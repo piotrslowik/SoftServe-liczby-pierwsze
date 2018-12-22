@@ -3,11 +3,12 @@
     width: 1000px;
     background: #AAA;
     display: flex;
+    cursor: default;
+    transition: filter .3s;
 }
 
 .OfferCard:hover {
     filter: brightness(110%);
-    transition: filter .3s;
 }
 
 .image {

@@ -8,7 +8,8 @@ class Modal extends Component {
         <div className="Modal">
             <div className="Modal-background" onClick={this.props.onCloseModal} />
             <div className="Modal-content">
-                {this.props.children}
+              <h1 className="Modal__header">{this.props.header}</h1>
+              {this.props.children}
             </div>
         </div>
       );

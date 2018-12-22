@@ -7,7 +7,7 @@ class Footer extends Component {
   render() {
     return (
       <div className="Footer">
-        <p>Moto-Auto © 2018</p>
+        <p>Moto-Auto © {new Date().getFullYear()}</p>
       </div>
     );
   }

@@ -3,6 +3,7 @@ import '../../stylesheets/Modals/Modal_AddCar.css'
 
 import Modal from './Modal'
 import ModalOfferCard from './Modal_OfferCard'
+import Button from '../Fields/Button';
 
 class Modal_AddCar extends Component {
 
@@ -47,6 +48,7 @@ class Modal_AddCar extends Component {
           horsepower: document.querySelector('.input__horsepower').value,
           mileage: document.querySelector('.input__mileage').value,
           year: document.querySelector('.input__year').value,
+          price: 999999,
           isOfferCardModalVisible: true
         }
       )
@@ -76,8 +78,7 @@ class Modal_AddCar extends Component {
   
   render() {
     return (
-      <Modal onCloseModal={this.props.onCloseModal}>
-        <h1 className="form__header">Nowe ogłoszenie</h1>
+      <Modal onCloseModal={this.props.onCloseModal} header={this.props.header}>
         <div className="add-car-form">
           <label htmlFor="make">Marka</label>
           <input type="text" className="input__make" name="make" required></input>
@@ -118,8 +119,8 @@ class Modal_AddCar extends Component {
         </div>
 
         <div className="add-car-buttons">
-          <button className="button__clear" onClick={this.handleClearForm}>Wyczyść</button>
-          <button className="button__add" onClick={this.handleAddCar}>Dodaj</button>
+          <Button className="button-red" onClick={this.handleClearForm} text="Wyczyść" />
+          <Button className="button-yellow" onClick={this.handleAddCar} text="Dodaj" />
         </div>
 
         {this.state.isOfferCardModalVisible ?

@@ -55,26 +55,17 @@
     color: #283a5e;
 }
 
-.Header-dashboard button:hover {
-    color: white;
-    transition: all .15s;
-    background: darkblue;
-    border-color: #283a5e;
-}
-
-.button-add {
-    background: #faf76a;
-    border: 2px solid #d8d643;
-}
-
-.button-register, .button-login {
-    background: #61dafb;
-    border: 2px solid #4dbbda;
-}
-
 .Header .button-filters {
     background: #CCC;
     border: 2px solid #AAA;
     margin: 5px;
     width: 100px;
+}
+
+
+.Header .button-filters:hover {
+    color: white;
+    transition: all .15s;
+    background: darkblue;
+    border-color: #283a5e;
 }

@@ -8,6 +8,7 @@
     left: 0;
     animation-name: show;
     animation-duration: .4s;
+    z-index: 1;
 }
 
 .Modal  .Modal-background {
@@ -26,6 +27,12 @@
     padding: 100px;
     opacity: 1;
     width: 1360px;
+}
+
+.Modal .Modal__header {
+    font-size: 48px;
+    margin-top: 0;
+    margin-bottom: 50px;
 }
 
 @keyframes show {
