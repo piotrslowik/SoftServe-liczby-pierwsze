@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 
-import Filters from './Filters'
-import ModalAddCar from './Modals/Modal_AddCar'
-import ModalRegister from './Modals/Modal_Register'
-import ModalLogin from './Modals/Modal_Login'
+import Filters from '../Filters';
+import ModalAddCar from '../../Modals/AddCar';
+import ModalRegister from '../../Modals/Register';
+import ModalLogin from '../../Modals/Login';
 
-import '../stylesheets/Header.css';
-import Button from './Fields/Button';
+import Button from '../../Shared/Fields/Button';
 
 class Header extends Component {
 

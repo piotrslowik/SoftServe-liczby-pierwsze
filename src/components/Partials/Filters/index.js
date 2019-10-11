@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 
-import LabelledSelect from './Fields/LabelledSelect';
-import Range from './Fields/Range';
+import LabelledSelect from '../../Shared/Fields/LabelledSelect';
+import Range from '../../Shared/Fields/Range';
 
-import '../stylesheets/Filters.css';
-
-import data from '../data.json'
+import data from '../../../data.json'
 
 class Filters extends Component {
   

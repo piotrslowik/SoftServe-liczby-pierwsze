@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import '../stylesheets/Body.css'
-import cars from '../cars.json'
+import cars from '../../../cars.json'
 
-import OfferCard from './OfferCard'
+import OfferCard from '../../Shared/OfferCard'
 
 class Body extends Component {
 

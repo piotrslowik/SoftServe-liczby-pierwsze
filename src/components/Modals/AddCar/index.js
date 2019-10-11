@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import '../../stylesheets/Modals/Modal_AddCar.css'
 
-import Modal from './Modal'
-import ModalOfferCard from './Modal_OfferCard'
-import Button from '../Fields/Button';
+import Modal from '..'
+import ModalOfferCard from '../OfferCard'
+import Button from '../../Shared/Fields/Button';
 
 class Modal_AddCar extends Component {
 

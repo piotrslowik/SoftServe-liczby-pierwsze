@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
-import '../../stylesheets/Modals/Modal_Register.css'
 
-import Modal from './Modal'
-import ThirdPartyRegisterButton from '../Fields/ThirdPartyRegisterButton'
-import TextBetweenLines from '../../decors/TextBetweenLines'
-import LabelledInput from '../Fields/LabelledInput';
-import Button from '../Fields/Button';
+import Modal from '..'
+import ThirdPartyRegisterButton from '../../Shared/Fields/ThirdPartyRegisterButton'
+import TextBetweenLines from '../../Shared/TextBetweenLines'
+import LabelledInput from '../../Shared/Fields/LabelledInput';
+import Button from '../../Shared/Fields/Button';
 
 class Modal_Login extends Component {
 

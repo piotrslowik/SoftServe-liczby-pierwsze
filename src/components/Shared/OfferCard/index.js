@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import '../stylesheets/OfferCard.css'
 
-const images = require.context('./../static/images')
+const images = require.context('./../../../static/images')
 
 
 class OfferCard extends Component {

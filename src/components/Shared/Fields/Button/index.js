@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import '../../stylesheets/Fields/Button.css';
-
 class Button extends Component {
 
     render() {

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import '../../stylesheets/Fields/LabelledInput.css';
-
 class LabelledInput extends Component {
   
     render() {

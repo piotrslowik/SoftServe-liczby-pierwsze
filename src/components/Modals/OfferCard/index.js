@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import '../../stylesheets/Modals/Modal_OfferCard.css'
 
-import Modal from './Modal'
-import OfferCard from '../OfferCard'
-import Button from '../Fields/Button';
+import Modal from '..'
+import OfferCard from '../../Shared/OfferCard'
+import Button from '../../Shared/Fields/Button';
 
 class Modal_OfferCard extends Component {
     render() {

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import '../../stylesheets/Fields/LabelledSelect.css';
-
 class LabelledSelect extends Component {
   
     render() {
