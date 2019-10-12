@@ -4,7 +4,7 @@ import Header from './components/Partials/Header'
 import Body from './components/Partials/Body'
 import Footer from './components/Partials/Footer'
 
-import './stylesheets/App.css';
+import './stylesheets/App.scss';
 
 class App extends Component {
 

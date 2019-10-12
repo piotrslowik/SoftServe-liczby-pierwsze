@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
+import Label from "../Label";
+
 class LabelledSelect extends Component {
   
     render() {
         return (
             <div className="LabelledSelect">
-                <label>{this.props.label}</label>
+                <Label text={this.props.label} />
                 <select>
                     {this.props.values.map(value => 
                         <option>{value}</option>
