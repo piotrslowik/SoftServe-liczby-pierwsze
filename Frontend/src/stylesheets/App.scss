@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Play');
+@import '../stylesheets/variables.scss';
 
 body {
-  background-color: #383c44;
+  background-color: $dark-grey;
 }
 .App {
-  box-sizing: border-box;
   min-height: 100vh;
 }
 .flex-column-center {
@@ -18,6 +18,8 @@ body {
 @import "../components/Modals/Login/styles.scss";
 @import "../components/Modals/OfferCard/styles.scss";
 @import "../components/Modals/Register/styles.scss";
+@import "../components//Modals/Admin/styles.scss";
+@import "../components/Modals/Admin/Origin/styles.scss";
 
 @import "../components/Partials/Body/styles.scss";
 @import "../components/Partials/Filters/styles.scss";
@@ -29,6 +31,11 @@ body {
 @import "../components/Shared/Fields/LabelledInput/styles.scss";
 @import "../components/Shared/Fields/LabelledSelect/styles.scss";
 @import "../components/Shared/Fields/Range/styles.scss";
-@import "../components/Shared/Fields//ThirdPartyRegisterButton/styles.scss";
+@import "../components/Shared/Fields/ThirdPartyRegisterButton/styles.scss";
 
+@import "../components/Shared/EditableRecord/styles.scss";
+@import "../components/Shared/EditableTable/styles.scss";
+@import "../components/Shared/EditRecord/styles.scss";
 @import "../components/Shared/OfferCard/styles.scss";
+@import "../components/Shared/Logo/styles.scss";
+@import "../components/Shared/Picker/styles.scss";

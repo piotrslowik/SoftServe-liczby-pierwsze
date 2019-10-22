@@ -1,0 +1,15 @@
+.ManageOrigin {
+    display: flex;
+    justify-content: center;
+
+    .AddOrigin {
+        border-right: 1px solid black;
+        padding-right: 30px;
+    }
+
+    .ListOrigins {
+        height: 300px;
+        overflow: auto;
+        padding: 0 30px;
+    }
+}

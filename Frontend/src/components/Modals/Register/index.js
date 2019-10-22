@@ -29,7 +29,7 @@ class Modal_Login extends Component {
                     <LabelledInput label="E-Mail" type="email" value={this.state.email} onChange={this.handleInputEmail} />
                     <LabelledInput label="Hasło" type="password" value={this.state.password} onChange={this.handleInputPassword} />
                     <LabelledInput label="Powtórz hasło" type="password" value={this.state.passwordRepeat} onChange={this.handleInputPasswordRepeat} />
-                    <Button className="button-blue" onClick={this.handleRegister} text="Załóż konto" />
+                    <Button modifier="blue" onClick={this.handleRegister} text="Załóż konto" />
                 </div>
                 
             </div>

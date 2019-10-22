@@ -1,0 +1,23 @@
+@import '../../../stylesheets/variables.scss';
+
+.Logo {
+    grid-column: 1/2;
+    text-align: center;
+    font-size: 18px;
+    @media (min-width: $desktop) {
+        font-size: 30px;
+    }
+    margin: 4px 10px;
+    color: $sky-blue;
+    font-family: 'Play', sans-serif;
+
+    p {
+        margin: 0;
+    }
+}
+
+.luxury {
+    font-size: .5em;
+    font-family: 'Norican', cursive;
+    letter-spacing: 8px;
+}

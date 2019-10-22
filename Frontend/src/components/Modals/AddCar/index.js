@@ -19,10 +19,10 @@ class Modal_AddCar extends Component {
   }
 
   handleFileInput = e => {
-    let file = e.target.files.item(0).name
+    let fileName = e.target.files.item(0).name;
     this.setState(
       {
-        imgFileName: file
+        imgFileName: fileName,
       }
     )
   }
@@ -118,12 +118,13 @@ class Modal_AddCar extends Component {
         </div>
 
         <div className="add-car-buttons">
-          <Button className="button-red" onClick={this.handleClearForm} text="Wyczyść" />
-          <Button className="button-yellow" onClick={this.handleAddCar} text="Dodaj" />
+          <Button modifier="red" onClick={this.handleClearForm} text="Wyczyść" />
+          <Button modifier="yellow" onClick={this.handleAddCar} text="Dodaj" />
         </div>
 
-        {this.state.isOfferCardModalVisible ?
-        <ModalOfferCard onReturn={this.hideOfferCardModal} car={this.state} /> : null}
+        {this.state.isOfferCardModalVisible
+          ? <ModalOfferCard onReturn={this.hideOfferCardModal} car={this.state} />
+          : null}
       </Modal>
     );
   }

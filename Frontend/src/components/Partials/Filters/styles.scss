@@ -1,3 +1,4 @@
+@import '../../../stylesheets/variables.scss';
 
 .Filters {
     display: flex;
@@ -9,6 +10,17 @@
     position: relative;
     top: -50px;
     height: 0;
+    @media (max-width: $desktop) {
+        display: none;
+    }
+
+    .Label {
+        color: white;
+    }
+
+    .LabelledSelect select{
+        padding: 2px;
+    }
 }
 
 .Filters--hidden {

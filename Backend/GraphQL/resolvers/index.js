@@ -126,7 +126,7 @@ const graphqlResolvers = {
     },
     createOrigin: async args => {
         const origin = new Origin({
-            origin: args.offerInput.origin,
+            origin: args.originInput.origin,
         });
         try {
             const result = await origin.save();
@@ -139,6 +139,36 @@ const graphqlResolvers = {
         catch (error) {
             console.error(error);
             throw error;
+        }
+    },
+    editOrigin: async args => {
+        const origin = Origin.findById(args.originEditInput.id);
+        origin.origin = args.originEditInput.origin;
+        try {
+            const result = await origin.save();
+            console.log(result);
+            return {
+                ...result._doc,
+                _id: result.id,
+            };
+        }
+        catch (error) {
+            console.error(error);
+            throw error;
+        }
+    },
+    deleteOrigin: async args => {
+        try {
+            const origin = await Origin.findById(args.originId);
+            await Origin.deleteOne({_id: args.originId});
+            return {
+                ...origin._doc,
+                _id: origin.id
+            }
+        }
+        catch (error) {
+            console.error(error);
+            throw error
         }
     },
     makes: async () => {

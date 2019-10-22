@@ -1,3 +1,5 @@
+@import '../../../../stylesheets/variables.scss';
+
 .Button {
     width: 160px;
     height: 70px;
@@ -5,35 +7,40 @@
     border-radius: 5px;
     font-family: 'Play', sans-serif;
     font-weight: bold;
-    color: #283a5e;
+    color: $dark-blue;
     transition: all .15s;
-}
 
-.Button:hover {
-    color: white;
-}
+    &:hover{
+        color: white;
+    }
 
-.button-blue {
-    background: #61dafb;
-    border: 2px solid #4dbbda;
-}
+    &--blue {
+        background: $sky-blue;
+        border: 2px solid $sky-blue2;
 
-.button-yellow {
-    background: #faf76a;
-    border: 2px solid #d8d643;
-}
+        &:hover {
+            background: darkblue;
+            border-color: $dark-blue;
+        }
+    }
 
-.button-red {
-    background: rgb(255, 148, 148);;
-    border: 2px solid rgb(255, 98, 98);;
-}
+    &--yellow {
+        background: $yellow;
+        border: 2px solid $yellow2;
 
-.button-yellow:hover, .button-blue:hover {
-    background: darkblue;
-    border-color: #283a5e;
-}
+        &:hover {
+            background: darkblue;
+            border-color: $dark-blue;
+        }
+    }
 
-.button-red:hover {
-    background: rgb(255, 68, 68);
-    border: 2px solid #ce1b1b;
+    &--red {
+        background: $red;
+        border: 2px solid $red2;
+
+        &:hover {
+            background: $dark-red;
+            border: 2px solid $dark-red2;
+        }
+    }
 }

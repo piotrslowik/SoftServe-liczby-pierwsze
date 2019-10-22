@@ -1,12 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class Button extends Component {
+const Button = ({
+    modifier,
+    onClick,
+    text,
+}) => {
 
-    render() {
-        return (
-            <button className={`Button ${this.props.className}`} onClick={this.props.onClick}>{this.props.text}</button>
-        );
-    }
+    return (
+        <button className={"Button" + (modifier ? ` Button--${modifier}` : '')} onClick={onClick}>{text}</button>
+    );
+}
+
+Button.defaultProps = {
+    modifier: 'blue',
+    onClick: () => {},
+    text: '',
+}
+
+Button.propTypes = {
+    modifier: PropTypes.oneOf(['blue', 'yellow', 'red']),
+    onClick: PropTypes.func,
+    text: PropTypes.string,
 }
 
 export default Button;

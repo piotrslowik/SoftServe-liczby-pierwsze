@@ -22,7 +22,7 @@ class App extends Component {
 
   render() {
     return (
-        <div className="App">
+        <div className="App flex-column-center">
             <Header onFilter={this.handleFilter} onShowModal={() => this.showModal('AddCar')}/>
             <Body filterInput={this.state.filterInput} />
             <Footer />

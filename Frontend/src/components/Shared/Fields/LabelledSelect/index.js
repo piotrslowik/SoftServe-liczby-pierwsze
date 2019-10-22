@@ -1,21 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import Label from "../Label";
 
-class LabelledSelect extends Component {
+const LabelledSelect = ({
+    label,
+    values,
+}) => {
   
-    render() {
-        return (
-            <div className="LabelledSelect">
-                <Label text={this.props.label} />
-                <select>
-                    {this.props.values.map(value => 
-                        <option>{value}</option>
-                    )}
-                </select>
-            </div>
-        )
-    }
+    return (
+        <div className="LabelledSelect">
+            <Label text={label} />
+            <select>
+                {values.map((value, index) => 
+                    <option key={index}>{value}</option>
+                )}
+            </select>
+        </div>
+    )
+}
+
+LabelledSelect.defaultProps = {
+    label: '',
+    values: [],
+}
+
+LabelledSelect.propTypes = {
+    label: PropTypes.string,
+    values: PropTypes.arrayOf(PropTypes.string),
 }
 
 export default LabelledSelect;

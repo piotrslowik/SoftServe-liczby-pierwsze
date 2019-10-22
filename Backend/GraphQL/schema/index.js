@@ -42,6 +42,10 @@ const graphqlSchema = buildSchema(`
     input OriginInput {
         origin: String!,
     }
+    input OriginEditInput {
+        origin: String!,
+        id: ID!,
+    }
 
     type Make {
         _id: ID!,
@@ -83,6 +87,8 @@ const graphqlSchema = buildSchema(`
         deleteOffer(offerId: ID!): Model
         createUser(userInput: UserInput): User
         createOrigin(originInput: OriginInput): Origin
+        editOrigin(originInput: OriginEditInput): Origin
+        deleteOrigin(originId: ID!): Origin
         createFuel(fuelInput: FuelInput): Fuel
         createMake(makeInput: MakeInput): Make
         createModel(modelInput: ModelInput): Model

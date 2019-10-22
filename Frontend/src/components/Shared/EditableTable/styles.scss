@@ -1,0 +1,12 @@
+.EditableTable {
+    &__filter {
+        border: none;
+        border-bottom: 1px solid gray;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .EditableRecord {
+        width: 100%;
+    }
+}

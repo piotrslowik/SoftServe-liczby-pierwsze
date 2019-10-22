@@ -3,6 +3,8 @@ import cars from '../../../cars.json'
 
 import OfferCard from '../../Shared/OfferCard'
 
+import { isStringInText } from '../../../logic/helpers';
+
 class Body extends Component {
 
   state = {
@@ -16,8 +18,12 @@ class Body extends Component {
   render() {
     return (
       <div className="Body">
-        { this.state.cars.filter(car => this.isFilterInputIn(car.make) || this.isFilterInputIn(car.model) ).map( car => 
-          <OfferCard car={car} key={car.id} /> )
+        { this.state.cars
+            .filter(car => 
+              isStringInText(this.props.filterInput, car.make) || 
+              isStringInText(this.props.filterInput, car.model) )
+            .map( car => 
+              <OfferCard car={car} key={car.id} /> )
         }
       </div>
     );
