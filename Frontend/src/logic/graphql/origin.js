@@ -2,7 +2,7 @@ import Axios from 'axios';
 
 import { sortObjectsArrayByField, makeObjectLast } from '../helpers';
 
-export const getOrigins = async () =>{
+export const getOrigins = async () => {
     const query = `
         query {
             origins {
@@ -28,7 +28,7 @@ export const getOrigins = async () =>{
     }
 }
 
-export const deleteOrigin = async originId =>{
+export const deleteOrigin = async originId => {
     const query = `
         mutation {
             deleteOrigin (originId: "${originId}",
@@ -52,7 +52,7 @@ export const deleteOrigin = async originId =>{
     }
 }
 
-export const addOrigin = async origin =>{
+export const addOrigin = async origin => {
     const query = `
         mutation {
             createOrigin (originInput: {
@@ -71,6 +71,32 @@ export const addOrigin = async origin =>{
             }
         });
         return result.data.data.createOrigin;
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+
+export const editOrigin = async (origin, originId) => {
+    const query = `
+        mutation {
+            editOrigin(originEditInput:{
+                origin: "${origin}",
+                id: "${originId}",
+            })
+            {
+                origin
+            }
+        }
+    `;
+    try {
+        const result = await Axios.post('http://localhost:8000/graphql', {
+            query: query,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        return result.data.data.editOrigin.origin;
     }
     catch (error) {
         console.error(error);

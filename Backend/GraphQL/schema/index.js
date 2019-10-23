@@ -34,6 +34,11 @@ const graphqlSchema = buildSchema(`
         email: String!,
         password: String!,
     }
+    input UserEditInput {
+        email: String,
+        password: String,
+        id: ID!,
+    }
 
     type Origin {
         _id: ID!,
@@ -56,6 +61,11 @@ const graphqlSchema = buildSchema(`
         make: String!,
         origin: ID!,
     }
+    input MakeEditInput {
+        make: String,
+        origin: ID,
+        id: ID!,
+    }
 
     type Model {
         _id: ID!,
@@ -66,6 +76,11 @@ const graphqlSchema = buildSchema(`
         model: String!,
         make: ID!,
     }
+    input ModelEditInput {
+        model: String,
+        make: ID,
+        id: ID!,
+    }
 
     type Fuel {
         _id: ID!,
@@ -73,6 +88,10 @@ const graphqlSchema = buildSchema(`
     }
     input FuelInput {
         fuel: String!,
+    }
+    input FuelEditInput {
+        fuel: String!,
+        id: ID!,
     }
 
     type RootQuery {
@@ -85,13 +104,24 @@ const graphqlSchema = buildSchema(`
     type RootMutation {
         createOffer(offerInput: OfferInput): Offer
         deleteOffer(offerId: ID!): Model
+
         createUser(userInput: UserInput): User
+
         createOrigin(originInput: OriginInput): Origin
-        editOrigin(originInput: OriginEditInput): Origin
+        editOrigin(originEditInput: OriginEditInput): Origin
         deleteOrigin(originId: ID!): Origin
+
         createFuel(fuelInput: FuelInput): Fuel
+        editFuel(fuelEditInput: FuelEditInput): Fuel
+        deleteFuel(fuelId: ID!): Fuel
+
         createMake(makeInput: MakeInput): Make
+        editMake(makeEditInput: MakeEditInput): Make
+        deleteMake(makeId: ID!): Make
+
         createModel(modelInput: ModelInput): Model
+        editModel(modelEditInput: ModelEditInput): Model
+        deleteModel(modelId: ID!): Model
     }
 
     schema {

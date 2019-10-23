@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { getOrigins, deleteOrigin, addOrigin } from '../../../../logic/graphql/origin';
+import { getOrigins, deleteOrigin, addOrigin, editOrigin } from '../../../../logic/graphql/origin';
 
 import AddRecord from '../../../Shared/AddRecord';
 import EditRecord from '../../../Shared/EditRecord';
@@ -48,7 +48,8 @@ const ManageOrigin = () => {
     }
 
     const handleEditOrigin = async () => {
-        alert("Edytuję, nowa nazwa to: " + editValue + " o ID " + originToEdit.id);
+        await editOrigin(editValue, originToEdit.id);
+        fetchOrigins();
         handleReturn();
     }
 
