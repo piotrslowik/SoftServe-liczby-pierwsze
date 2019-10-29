@@ -11,4 +11,7 @@ export const makeObjectLast = (array, field, otherName) => {
 }
 export const isStringInText = (string, text) => {
     return text.toLowerCase().indexOf(string.toLowerCase()) !== -1
-  }
+}
+export const isObjectEmpty = obj => {
+    return Object.entries(obj).length !== 0;
+}

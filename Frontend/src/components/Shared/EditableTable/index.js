@@ -7,6 +7,8 @@ import { isStringInText } from '../../../logic/helpers';
 
 const EditableTable = ({
     records,
+    noControls,
+    onClick,
     onEdit,
     onDelete,
     className,
@@ -25,7 +27,15 @@ const EditableTable = ({
                 {records
                     .filter(record => isStringInText(filterInput, record.text))
                     .map(record => {
-                        return <EditableRecord record={record} onEdit={onEdit} onDelete={onDelete} key= {record.id} />
+                        return (
+                            <EditableRecord
+                                record={record}
+                                noControls={noControls}
+                                onClick={onClick}
+                                onEdit={onEdit}
+                                onDelete={onDelete}
+                                key={record.id}
+                            />)
                     })
                 }
             </div>
@@ -35,6 +45,8 @@ const EditableTable = ({
 
 EditableTable.defaultProps = {
     records: [],
+    noControls: false,
+    onClick: () => {},
     onEdit: () => {},
     onDelete: () => {},
     className: '',
@@ -45,6 +57,8 @@ EditableTable.propTypes = {
         text: PropTypes.string,
         id: PropTypes.string,
     })),
+    noControls: PropTypes.bool,
+    onClick: PropTypes.func,
     onEdit: PropTypes.func,
     onDelete: PropTypes.func,
     className: PropTypes.string,

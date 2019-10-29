@@ -1,0 +1,29 @@
+.ManageMake {
+    display: flex;
+    justify-content: center;
+
+    .AddMake, .EditMake {
+        padding-right: 30px;
+        
+        .LabelledInput {
+            width: 100%;
+            margin-bottom: 20px;
+            
+            label {
+                width: 50%;
+            }
+        }
+    }
+    
+    .ListMakes {
+        border-left: 1px solid black;
+        height: 480px;
+        padding: 0 30px;
+    }
+
+    .AddRecord__list, .EditRecord__list {
+        height: 230px;
+        padding: 0 30px;
+        margin-bottom: 30px;
+    }
+}

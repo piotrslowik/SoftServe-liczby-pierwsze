@@ -53,4 +53,4 @@ const offerResolver = {
     }
 }
 
-export default offerResolver;
+module.exports =  offerResolver;

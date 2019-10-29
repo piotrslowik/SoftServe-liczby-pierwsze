@@ -44,4 +44,4 @@ const userResolver = {
     },
 }
 
-export default userResolver;
+module.exports =  userResolver;

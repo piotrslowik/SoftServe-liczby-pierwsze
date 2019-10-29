@@ -1,17 +1,17 @@
-.ManageOrigin {
+.ManageFuel {
     display: flex;
     justify-content: center;
 
-    .AddOrigin, .EditOrigin {
+    .AddFuel, .EditFuel {
         padding-right: 30px;
         border-right: 1px solid black;
-        
+
         .Button {
             margin-top: 50px;
         }
     }
     
-    .ListOrigins {
+    .ListFuels {
         height: 300px;
         padding: 0 30px;
     }

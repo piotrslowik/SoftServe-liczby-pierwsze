@@ -5,7 +5,7 @@ const makeSchema = new Schema ({
         type: String,
         required: true,
     },
-    origin: {
+    originId: {
         type: Schema.Types.ObjectId,
         ref: 'Origin',
     },

@@ -6,6 +6,11 @@
         padding: 10px;
     }
 
+    &__records {
+        overflow: auto;
+        width: 100%;
+    }
+
     .EditableRecord {
         width: 100%;
     }

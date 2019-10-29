@@ -1,5 +1,3 @@
-import { make } from './helpers';
-
 const Make = require('../../Models/make');
 
 const { origin, parseWithId } = require('./helpers');
@@ -11,7 +9,7 @@ const makeResolver = {
             return makes.map(make => {
                 return { 
                     ...parseWithId(make),
-                    origin: origin.bind(this, make._doc.origin),
+                    origin: origin.bind(this, make._doc.originId),
                 };
             });
         }
@@ -23,11 +21,41 @@ const makeResolver = {
     createMake: async args => {
         const make = new Make({
             make: args.makeInput.make,
-            origin: origin.bind(this, make.makeInput.origin),
+            originId: args.makeInput.originId,
         });
         try {
             const result = await make.save();
-            return parseWithId(result);
+            return {
+                ...parseWithId(result),
+                origin: origin.bind(this, result._doc.originId)
+            };
+        }
+        catch (error) {
+            console.error(error);
+            throw error;
+        }
+    },
+    editMake: async args => {
+        try {
+            const make = await Make.findById(args.makeEditInput.makeId);
+            make.make = args.makeEditInput.make;
+            make.originId = args.makeEditInput.originId;
+            const result = await make.save();
+            return {
+                ...parseWithId(result),
+                origin: origin.bind(this, result._doc.originId),
+            };
+        }
+        catch (error) {
+            console.error(error);
+            throw error;
+        }
+    },
+    deleteMake: async args => {
+        try {
+            const make = await Make.findById(args.makeId);
+            await Make.deleteOne({_id: args.makeId});
+            return parseWithId(make);
         }
         catch (error) {
             console.error(error);
@@ -36,4 +64,4 @@ const makeResolver = {
     },
 }
 
-export default makeResolver;
+module.exports =  makeResolver;

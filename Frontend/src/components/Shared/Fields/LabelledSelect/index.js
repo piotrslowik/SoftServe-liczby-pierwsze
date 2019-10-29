@@ -6,14 +6,15 @@ import Label from "../Label";
 const LabelledSelect = ({
     label,
     values,
+    onChange,
 }) => {
   
     return (
         <div className="LabelledSelect">
             <Label text={label} />
-            <select>
-                {values.map((value, index) => 
-                    <option key={index}>{value}</option>
+            <select onChange={onChange}>
+                {values.map(value => 
+                    <option key={value.id}>{value.text}</option>
                 )}
             </select>
         </div>
@@ -27,7 +28,10 @@ LabelledSelect.defaultProps = {
 
 LabelledSelect.propTypes = {
     label: PropTypes.string,
-    values: PropTypes.arrayOf(PropTypes.string),
+    values: PropTypes.arrayOf(PropTypes.shape({
+        text: PropTypes.string,
+        id: PropTypes.string,
+    })),
 }
 
 export default LabelledSelect;

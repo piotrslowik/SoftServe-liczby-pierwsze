@@ -3,13 +3,13 @@ const Model = require('../../Models/model');
 const { make, parseWithId } = require('./helpers');
 
 const modelResolver = {
-    models: async () => {
+    models: async args => {
         try {
-            const models = await Models.find();
+            const models = await Model.find({makeId: args.makeId});
             return models.map(model => {
                 return { 
                     ...parseWithId(model),
-                    make: make.bind(this, make._doc.make),
+                    make: make.bind(this, model._doc.makeId),
                 };
             });
         }
@@ -21,11 +21,41 @@ const modelResolver = {
     createModel: async args => {
         const model = new Model({
             model: args.modelInput.model,
-            make: make.bind(this, model.modelInput.make),
+            makeId: args.modelInput.makeId,
         });
         try {
             const result = await model.save();
-            return parseWithId(result);
+            return {
+                ...parseWithId(result),
+                make: make.bind(this, result._doc.makeId),
+            };
+        }
+        catch (error) {
+            console.error(error);
+            throw error;
+        }
+    },
+    editModel: async args => {
+        try {
+            const model = await Model.findById(args.modelEditInput.modelId);
+            model.model = args.modelEditInput.model;
+            model.makeId = args.modelEditInput.makeId;
+            const result = await model.save();
+            return {
+                ...parseWithId(result),
+                make: make.bind(this, result._doc.makeId),
+            };
+        }
+        catch (error) {
+            console.error(error);
+            throw error;
+        }
+    },
+    deleteModel: async args => {
+        try {
+            const model = await Model.findById(args.modelId);
+            await Model.deleteOne({_id: args.modelId});
+            return parseWithId(model);
         }
         catch (error) {
             console.error(error);
@@ -34,4 +64,4 @@ const modelResolver = {
     },
 }
 
-export default modelResolver;
+module.exports =  modelResolver;

@@ -53,4 +53,4 @@ const originResolver = {
     },
 }
 
-export default originResolver;
+module.exports =  originResolver;

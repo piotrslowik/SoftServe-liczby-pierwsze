@@ -59,12 +59,12 @@ const graphqlSchema = buildSchema(`
     }
     input MakeInput {
         make: String!,
-        origin: ID!,
+        originId: ID!,
     }
     input MakeEditInput {
         make: String,
-        origin: ID,
-        id: ID!,
+        originId: ID,
+        makeId: ID!,
     }
 
     type Model {
@@ -74,12 +74,12 @@ const graphqlSchema = buildSchema(`
     }
     input ModelInput {
         model: String!,
-        make: ID!,
+        makeId: ID!,
     }
     input ModelEditInput {
         model: String,
-        make: ID,
-        id: ID!,
+        makeId: ID,
+        modelId: ID!,
     }
 
     type Fuel {
@@ -97,7 +97,7 @@ const graphqlSchema = buildSchema(`
     type RootQuery {
         offers: [Offer!]!
         makes: [Make!]!
-        models: [Model!]!
+        models(makeId: ID!): [Model!]!
         fuels: [Fuel!]!
         origins: [Origin!]!
     }

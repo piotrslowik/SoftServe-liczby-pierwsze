@@ -5,7 +5,7 @@ const modelSchema = new Schema ({
         type: String,
         required: true,
     },
-    make: {
+    makeId: {
         type: Schema.Types.ObjectId,
         ref: 'Make',
     },

@@ -15,11 +15,16 @@ body {
 
 @import "../components/Modals/styles.scss";
 @import "../components/Modals/AddCar/styles.scss";
+@import "../components/Modals/Confirm/styles.scss";
 @import "../components/Modals/Login/styles.scss";
 @import "../components/Modals/OfferCard/styles.scss";
 @import "../components/Modals/Register/styles.scss";
+
 @import "../components//Modals/Admin/styles.scss";
+@import "../components/Modals/Admin/Fuel/styles.scss";
 @import "../components/Modals/Admin/Origin/styles.scss";
+@import "../components/Modals/Admin/Make/styles.scss";
+@import "../components/Modals/Admin/Model/styles.scss";
 
 @import "../components/Partials/Body/styles.scss";
 @import "../components/Partials/Filters/styles.scss";

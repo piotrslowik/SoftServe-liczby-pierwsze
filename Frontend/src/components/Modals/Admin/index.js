@@ -7,6 +7,7 @@ import Picker from '../../Shared/Picker';
 import ManageOrigin from './Origin';
 import ManageFuel from './Fuel';
 import ManageMake from './Make';
+import ManageModel from './Model';
 
 const Modal_Admin = ({
     header,
@@ -32,9 +33,7 @@ const Modal_Admin = ({
             case 1:
                 return <ManageMake />
             case 2:
-                return (
-                    <p>Dodawanie nowego modelu</p>
-                )
+                return <ManageModel />  
             case 3:
                 return <ManageFuel />
             case 4:

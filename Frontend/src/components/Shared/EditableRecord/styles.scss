@@ -6,11 +6,11 @@
     padding: 10px 10px;
     border-bottom: 1px solid black;
     width: 100%;
-
+    
     &:last-child {
         border-bottom: none;
     }
-
+    
     &__text {
         font-size: 18px;
         margin: 0 10px;
@@ -22,12 +22,12 @@
         display: flex;
         font-size: 20px;
         justify-content: space-between;
-
+        
         svg {
             margin: 5px 10px;
         }
     }
-
+    
     &__edit {
         color: $dark-blue;
         cursor: pointer;
@@ -35,5 +35,14 @@
     &__delete {
         color: red;
         cursor: pointer;
+    }
+    
+    &--clickable {
+        cursor: pointer;
+        transition: background-color .2s;
+
+        &:hover {
+            background: $modal-beige2;
+        }
     }
 }

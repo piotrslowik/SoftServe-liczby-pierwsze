@@ -1,0 +1,35 @@
+.ManageModel {
+    display: flex;
+    justify-content: center;
+
+    .AddModel, .EditModel {
+        padding-right: 30px;
+        
+        .LabelledInput {
+            width: 100%;
+            margin-bottom: 20px;
+            
+            label {
+                width: 50%;
+            }
+        }
+    }
+    
+    .ListMakes {
+        height: 480px;
+        padding: 0 30px;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+    }
+    
+    .AddRecord__list, .EditRecord__list {
+        height: 230px;
+        padding: 0 30px;
+        margin-bottom: 30px;
+    }
+    
+    .ListModels {
+        height: 480px;
+        padding: 0 30px;
+    }
+}
