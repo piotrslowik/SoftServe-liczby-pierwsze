@@ -1,17 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Play');
 @import '../stylesheets/variables.scss';
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
 
 body {
   background-color: $dark-grey;
 }
 .App {
   min-height: 100vh;
+  position: relative;
 }
 .flex-column-center {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+@import "../pages/Error404/styles.scss";
+@import "../pages/NewOffer/styles.scss";
+@import "../pages/Offer/styles.scss";
 
 @import "../components/Modals/styles.scss";
 @import "../components/Modals/AddCar/styles.scss";
@@ -30,17 +36,21 @@ body {
 @import "../components/Partials/Filters/styles.scss";
 @import "../components/Partials/Footer/styles.scss";
 @import "../components/Partials/Header/styles.scss";
+@import "../components//Partials//ImagesInput/styles.scss";
 
 @import "../components/Shared/Fields/Button/styles.scss";
 @import "../components/Shared/Fields/Label/styles.scss";
 @import "../components/Shared/Fields/LabelledInput/styles.scss";
 @import "../components/Shared/Fields/LabelledSelect/styles.scss";
 @import "../components/Shared/Fields/Range/styles.scss";
+@import "../components/Shared/Fields/Textarea/styles.scss";
 @import "../components/Shared/Fields/ThirdPartyRegisterButton/styles.scss";
 
+@import "../components/Shared/AddRecord/styles.scss";
 @import "../components/Shared/EditableRecord/styles.scss";
 @import "../components/Shared/EditableTable/styles.scss";
 @import "../components/Shared/EditRecord/styles.scss";
 @import "../components/Shared/OfferCard/styles.scss";
 @import "../components/Shared/Logo/styles.scss";
 @import "../components/Shared/Picker/styles.scss";
+@import "../components//Shared/ImagesList/styles.scss";

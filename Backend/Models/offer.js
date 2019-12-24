@@ -1,36 +1,55 @@
 const { Schema, model } = require('mongoose');
 
 const offerSchema = new Schema ({
-    make: {
-        type: String,
-        required: true,
+    makeId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Make',
     },
-    model: {
-        type: String,
-        required: true,
+    modelId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Model',
     },
-    description: {
+    fuelId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Fuel',
+    },
+    generation: {
         type: String,
-        required: true,
     },
     price: {
         type: Number,
         required: true,
     },
-    date: {
-        type: Date,
+    power: {
+        type: Number,
         required: true,
     },
     year: {
         type: Number,
         required: true,
     },
-    mileage: {
+    volume: {
         type: Number,
         required: true,
     },
-    photo: {
+    kms: {
+        type: Number,
+        required: true,
+    },
+    shortDescription: {
         type: String,
+        required: true,
+    },
+    longDescription: {
+        type: String,
+        required: true,
+    },
+    photos: {
+        type: [String],
+        required: true,
+    },
+    date: {
+        type: Date,
         required: true,
     },
     creator: {

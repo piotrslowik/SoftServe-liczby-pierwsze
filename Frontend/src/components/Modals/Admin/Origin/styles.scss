@@ -1,9 +1,14 @@
+@import "../../../../stylesheets/variables.scss";
+
 .ManageOrigin {
     display: flex;
     justify-content: center;
 
     .AddOrigin, .EditOrigin {
-        padding-right: 30px;
+        padding-right: 10px;
+        @media (min-width: $desktop) {
+            padding-right: 30px;
+        }
         border-right: 1px solid black;
         
         .Button {
@@ -13,6 +18,9 @@
     
     .ListOrigins {
         height: 300px;
-        padding: 0 30px;
+        padding: 0 10px;
+        @media (min-width: $desktop) {
+            padding: 0 30px;
+        }
     }
 }

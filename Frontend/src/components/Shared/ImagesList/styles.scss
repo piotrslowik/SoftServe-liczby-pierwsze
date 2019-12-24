@@ -1,0 +1,43 @@
+@import "../../../stylesheets/variables.scss";
+
+.ImagesList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    &__image-wrapper {
+        width: 90%;
+        @media (min-width: $tablet) {
+            width: unset;
+        }
+        position: relative;
+        margin: 0 10px 20px 10px;
+        transition: all .3s;
+    }
+    
+    &__image {
+        max-width: 100%;
+        @media (min-width: $tablet) {
+            max-width: 384px;
+            max-height: 216px;
+            width: auto;
+            height: auto;
+        }
+        display: block;
+        transition: all .4s;
+    }
+
+    &__delete-image {
+        cursor: pointer;
+        color: red;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1;
+        font-size: 2rem;
+    }
+}
+
+.ImagesList__delete-image:hover ~ .ImagesList__image {
+    filter: blur(4px) brightness(.6);
+}

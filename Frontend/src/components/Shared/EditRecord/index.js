@@ -24,11 +24,17 @@ const EditRecord = ({
 
     return (
         <div className={"EditRecord flex-column-center " + className}>
-            <LabelledInput label={firstCharToUpperCase(text)}  onChange={onInput} value={value} />
-            { secondText
-            ?   <LabelledInput label={firstCharToUpperCase(secondText)} value={secondValue} />
-            :   null
-            }
+            <div className="EditRecord__inputs">
+                <LabelledInput label={firstCharToUpperCase(text)}  onChange={onInput} value={value} />
+                { secondText
+                ?   <LabelledInput label={firstCharToUpperCase(secondText)} value={secondValue} />
+                :   null
+                }
+                 <div className="EditRecord__buttons EditRecord__buttons--mobile">
+                    <Button modifier="blue" text="Edytuj" onClick={onClickEdit}/>
+                    <Button modifier="blue" text="Powrót" onClick={onReturn}/>
+                </div>
+            </div>
             { tableValues.length
             ?   <EditableTable 
                     className="EditRecord__list"
@@ -38,8 +44,8 @@ const EditRecord = ({
                 />
             : null
             }
-            <div className="EditRecord__buttons">
-                <Button modifier="blue" text={`Edytuj ${text}`} onClick={onClickEdit}/>
+            <div className="EditRecord__buttons EditRecord__buttons--desktop">
+                <Button modifier="blue" text="Edytuj" onClick={onClickEdit}/>
                 <Button modifier="blue" text="Powrót" onClick={onReturn}/>
             </div>
         </div>

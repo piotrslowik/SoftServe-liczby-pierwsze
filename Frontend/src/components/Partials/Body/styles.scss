@@ -5,14 +5,15 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-}
+  margin-bottom: 70px;
 
-.Body .OfferCard {
-  margin-top: 10px;
-  @media (min-width: $tablet) {
-    margin-top: 20px;
-  }
-  @media (min-width: $desktop) {
-    margin-top: 30px;
+  .OfferCard {
+    margin-top: 10px;
+    @media (min-width: $tablet) {
+      margin-top: 20px;
+    }
+    @media (min-width: $desktop) {
+      margin-top: 30px;
+    }
   }
 }

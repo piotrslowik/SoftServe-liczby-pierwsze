@@ -11,30 +11,83 @@
     animation-name: show;
     animation-duration: .4s;
     z-index: 1;
-}
 
-.Modal  .Modal-background {
-    position: absolute;
-    background: $dark-blue; 
-    opacity: .6;
-    height: 100%;
-    width: 100%;
-}
+    &__background {
+        position: absolute;
+        background: $dark-blue; 
+        opacity: .6;
+        height: 100%;
+        width: 100%;
+    }
+    
+    &__content {
+        z-index: 1;
+        background: $modal-beige;
+        margin-top: 5px;
+        padding: 20px;
+        width: calc(100% - 10px);
 
-.Modal .Modal-content {
-    z-index: 1;
-    background: $modal-beige;
-    margin-top: 80px;
-    margin-bottom: auto;
-    padding: 100px;
-    opacity: 1;
-    width: 1360px;
-}
+        @media (min-width: $tablet) {
+            margin-top: 10px;
+            padding: 40px;
+            width: calc(100% - 20px);
+        }
 
-.Modal .Modal__header {
-    font-size: 48px;
-    margin-top: 0;
-    margin-bottom: 50px;
+        @media (min-width: $desktop) {
+            margin-top: 40px;    
+            width: calc(100% - 60px);
+        }
+        
+        @media (min-width: $desktop-hd) {
+            padding: 80px;
+            width: 1360px;
+        }
+        margin-bottom: auto;
+        opacity: 1;
+        position: relative;
+    }
+    
+    &__header {        
+        font-size: 28px;
+        margin-bottom: 20px;
+
+        @media (min-width: $tablet) {
+            font-size: 48px;
+            margin-bottom: 50px;
+        }
+        margin-top: 0;
+    }
+
+    &__close {
+        cursor: pointer;
+        width: 34px;
+        height: 34px;
+        right: 2px;
+        top: 2px;
+        font-size: 16px;
+
+        @media (min-width: $tablet) {
+            width: 42px;
+            height: 42px;
+            right: 5px;
+            top: 5px;
+            font-size: 20px;
+        }
+        @media (min-width: $desktop) {
+            width: 50px;
+            height: 50px;
+            right: -25px;
+            top: -25px;
+            font-size: 22px;
+        }
+        border-radius: 50%;
+        background: black;
+        color: white;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .closing-modal {

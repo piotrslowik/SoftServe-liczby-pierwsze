@@ -9,12 +9,14 @@ const LabelledInput = ({
     onChange,
     value,
     placeholder,
+    min,
+    max,
 }) => {
   
     return (
         <div className="LabelledInput">
             <Label text={label} />
-            <input type={type} onChange={onChange} value={value} placeholder={placeholder} />
+            <input type={type} onChange={onChange} value={value} placeholder={placeholder} min={min} max={max} />
         </div>
     )
 }
@@ -33,6 +35,8 @@ LabelledInput.propTypes = {
     onChange: PropTypes.func,
     value: PropTypes.string,
     placeholder: PropTypes.string,
+    min: PropTypes.number,
+    max: PropTypes.number,
 }
 
 export default LabelledInput;

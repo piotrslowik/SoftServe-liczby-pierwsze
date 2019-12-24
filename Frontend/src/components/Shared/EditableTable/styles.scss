@@ -1,9 +1,16 @@
+@import "../../../stylesheets/variables.scss";
+
 .EditableTable {
     &__filter {
         border: none;
         border-bottom: 1px solid gray;
-        font-size: 16px;
-        padding: 10px;
+        font-size: 14px;
+        padding: 6px;
+        @media (min-width: $desktop) {
+            font-size: 16px;
+            padding: 10px;
+        }
+        width: 100%;
     }
 
     &__records {

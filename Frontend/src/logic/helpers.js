@@ -15,3 +15,19 @@ export const isStringInText = (string, text) => {
 export const isObjectEmpty = obj => {
     return Object.entries(obj).length !== 0;
 }
+export const arrayToGraphQLString = array => {
+    return array.map(el => `"${el}"`);
+}
+export const formatNumber = number => {
+    let spaceIterator = 0;
+    let string = number.toString();
+    let output = "";
+    for (let i = string.length - 1; i >= 0; i--) {
+        output = string.charAt(i) + output;
+        spaceIterator++;
+        if (spaceIterator % 3 === 0 && i !== 0) {
+            output = " " + output;
+        }
+    }
+    return output;
+}

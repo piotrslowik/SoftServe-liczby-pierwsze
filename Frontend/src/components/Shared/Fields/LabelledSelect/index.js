@@ -8,11 +8,16 @@ const LabelledSelect = ({
     values,
     onChange,
 }) => {
+
+    const handleChange = event => {
+        const value = values.find(el => el.text === event.target.value);
+        onChange(value);
+    }
   
     return (
         <div className="LabelledSelect">
             <Label text={label} />
-            <select onChange={onChange}>
+            <select onChange={handleChange}>
                 {values.map(value => 
                     <option key={value.id}>{value.text}</option>
                 )}

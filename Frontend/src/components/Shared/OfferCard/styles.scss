@@ -14,6 +14,11 @@
     display: flex;
     cursor: default;
     transition: filter .3s;
+
+    &-Link {
+        text-decoration: none;
+        color: unset;
+    }
 }
 
 @media (min-width: $desktop) {

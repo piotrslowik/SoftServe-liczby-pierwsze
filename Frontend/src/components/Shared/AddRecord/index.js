@@ -27,11 +27,14 @@ const AddRecord = ({
 
     return (
         <div className={"AddRecord flex-column-center " + className}>
-            <LabelledInput label={firstCharToUpperCase(text)}  onChange={onInput} value={value} />
-            { secondText
-            ?   <LabelledInput label={firstCharToUpperCase(secondText)} value={secondValue} />
-            :   null
+            <div className="AddRecord__inputs">
+                <LabelledInput label={firstCharToUpperCase(text)}  onChange={onInput} value={value} />
+                { secondText
+                ?   <LabelledInput label={firstCharToUpperCase(secondText)} value={secondValue} />
+                :   null
             }
+                <Button className="mobile" modifier="blue" text="Dodaj" onClick={handleAdd}/>
+            </div>
             { tableValues.length
             ?   <EditableTable
                     className="AddRecord__list"
@@ -41,7 +44,7 @@ const AddRecord = ({
                 />
             : null
             }
-            <Button modifier="blue" text={`Dodaj ${text}`} onClick={handleAdd}/>
+            <Button className="desktop"modifier="blue" text="Dodaj" onClick={handleAdd}/>
         </div>
     )
 }

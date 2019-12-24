@@ -3,9 +3,17 @@
 .Picker {
     display: flex;
     justify-content: center;
+    overflow: auto;
 
     &__element {
-        font-size: 1.4em;
+        font-size: 1em;
+        @media (min-width: $tablet) {
+            font-size: 1.2em;
+        }
+        @media (min-width: $desktop) {
+            font-size: 1.4em;
+            overflow: unset;
+        }
         border-bottom: 1px solid $dark-grey;
         color: $dark-grey;
         margin: 0 10px;

@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+
 const Modal = ({
   header,
   onCloseModal,
@@ -16,7 +19,7 @@ const Modal = ({
   const closeModal = () => {
     const modalRoot = document.querySelector('.Modal');
     modalRoot.classList.add('closing-modal');
-    setTimeout(onCloseModal, 400);
+    setTimeout(onCloseModal, 390);
   }
 
   const closeModalWithEscKey = event => {
@@ -29,8 +32,10 @@ const Modal = ({
   
   return (
     <div className="Modal" onKeyDown={closeModalWithEscKey} >
-        <div className="Modal-background" onClick={closeModal} />
-        <div className="Modal-content">
+        <div className="Modal__background" onClick={closeModal} />
+        <div className="Modal__content">
+          <div className="Modal__close" onClick={closeModal} >
+            <FontAwesomeIcon icon={faTimes} className="Modal__close-icon" /></div>
           <h1 className="Modal__header">{header}</h1>
           {children}
         </div>

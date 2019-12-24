@@ -15,7 +15,6 @@ const Modal_Admin = ({
 }) => {
     
     const optionsToRender = [
-        'Ogłoszenie',
         'Marka',
         'Model',
         'Paliwo',
@@ -27,21 +26,15 @@ const Modal_Admin = ({
     const renderOption = () => {
         switch (optionToRender) {
             case 0:
-                return (
-                    <p>Dodawanie nowego ogłoszenia</p>
-                    )
-            case 1:
                 return <ManageMake />
-            case 2:
+            case 1:
                 return <ManageModel />  
-            case 3:
+            case 2:
                 return <ManageFuel />
-            case 4:
+            case 3:
                 return <ManageOrigin />
             default:
-                return (
-                    <p>Standard dupa statement</p>
-                )
+                return <h1>404</h1>
     }
   }
 

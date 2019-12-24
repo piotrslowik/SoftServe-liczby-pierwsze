@@ -1,16 +1,21 @@
+@import "../../../../stylesheets/variables.scss";
+
 .ManageMake {
     display: flex;
     justify-content: center;
 
     .AddMake, .EditMake {
-        padding-right: 30px;
-        
+        padding-right: 10px;
+               
         .LabelledInput {
             width: 100%;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             
             label {
-                width: 50%;
+                @media (min-width: $desktop) {
+                    width: 50%;
+                    margin-bottom: 20px;
+                }
             }
         }
     }
@@ -18,12 +23,10 @@
     .ListMakes {
         border-left: 1px solid black;
         height: 480px;
-        padding: 0 30px;
     }
 
     .AddRecord__list, .EditRecord__list {
         height: 230px;
-        padding: 0 30px;
         margin-bottom: 30px;
     }
 }

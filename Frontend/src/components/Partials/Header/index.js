@@ -25,7 +25,7 @@ class Header extends Component {
             <div className="Header">
                 <div className="Header-dashboard">
                     <Logo className="Header-logo"/>
-                    <input className="Header-search" type="text" placeholder="Szukaj..." onInput={this.props.onFilter} />
+                    {/* <input className="Header-search" type="text" placeholder="Szukaj..." onInput={this.props.onFilter} /> */}
                     <button className="button-filters" onClick={this.toggleFilters}>
                       <FontAwesomeIcon className="button-filters__text--mobile" icon={faSlidersH} />
                       <span className="button-filters__text--desktop">Filtry</span>
@@ -35,9 +35,10 @@ class Header extends Component {
                       <FontAwesomeIcon icon={faTimes} className="Header__menu-button-text--close" />
                     </button>
                     <div className="Header__buttons">
-                        <Button modifier="yellow" onClick={() => this.showModal('AddCar')} text="Dodaj" />
+                        <Button modifier="blue" onClick={() => this.showModal('AddCar')} text="Dodaj" />
                         <Button modifier="blue" onClick={() => this.showModal('Register')} text="Zarejestruj" />
                         <Button modifier="blue" onClick={() => this.showModal('Login')} text="Zaloguj" />
+                        {/* <Button modifier="blue" onClick={() => alert('Kontakt')} text="Kontakt" /> */}
                     </div>
                 </div>
                 {this.state.isModalVisible_AddCar
@@ -50,7 +51,7 @@ class Header extends Component {
                 {this.state.isModalVisible_Login
                   ? <ModalLogin onCloseModal={this.closeModal} header="Logowanie" />
                   : null}
-                <Filters />
+                {/* <Filters /> */}
             </div>
         );
     }

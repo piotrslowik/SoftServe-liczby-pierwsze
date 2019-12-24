@@ -16,22 +16,37 @@ const offerResolver = {
             throw error;
         }
     },
+    offerDetails: async args => {
+        try {
+            const offer = await Offer.findById(args.offerId);
+            return parseOffer(offer);
+        }
+        catch (error) {
+            console.error(error);
+            throw error;
+        }
+    },
     createOffer: async args => {
         const offer = new Offer({
-            make: args.offerInput.make,
-            model: args.offerInput.model,
-            description: args.offerInput.description,
+            makeId: args.offerInput.make,
+            modelId: args.offerInput.model,
+            fuelId: args.offerInput.fuel,
+            generation: args.offerInput.generation,
             price: args.offerInput.price,
-            date: new Date(),
+            power: args.offerInput.power,
             year: args.offerInput.year,
-            mileage: args.offerInput.mileage,
-            photo: args.offerInput.photo,
-            creator: '5da4fd3696b86f186c140515',
+            volume: args.offerInput.volume,
+            kms: args.offerInput.kms,
+            photos: args.offerInput.photos,
+            shortDescription: args.offerInput.shortDescription,
+            longDescription: args.offerInput.longDescription,
+            date: args.offerInput.date,
+            creator:  args.offerInput.creator,
         });
         try {
-            const creator = await User.findById('5da4fd3696b86f186c140515');
-            creator.createdOffers.push(offer);
-            await creator.save();
+            // const creator = await User.findById(args.offerInput.creator);
+            // creator.createdOffers.push(offer);
+            // await creator.save();
             const result = await offer.save();
             return parseOffer(result);
         }

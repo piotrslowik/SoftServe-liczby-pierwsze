@@ -3,25 +3,36 @@ const { buildSchema } = require('graphql');
 const graphqlSchema = buildSchema(`
     type Offer {
         _id: ID!,
-        make: String!,
-        model: String!,
-        description: String!,
-        price: Int!,
-        date: String!,
+        make: Make!,
+        model: Model!,
+        generation: String,
+        fuel: Fuel,
         year: Int!,
-        mileage: Int!,
-        photo: String!,
-        creator: User!,
+        kms: Int!,
+        volume: Int!,
+        power: Int!
+        price: Int!,
+        shortDescription: String!,
+        longDescription: String!,
+        photos: [String!]!,
+        date: String!,
+        creator: User,
     }
     input OfferInput {
         make: String!,
         model: String!,
-        description: String!,
-        price: Int!,
-        date: String!,
+        generation: String,
+        fuel: String,
         year: Int!,
-        mileage: Int!,
-        photo: String!,
+        kms: Int!,
+        volume: Int!,
+        power: Int!
+        price: Int!,
+        shortDescription: String!,
+        longDescription: String!,
+        photos: [String!]!,
+        date: String!,
+        creator: String,
     }
 
     type User {
@@ -96,6 +107,7 @@ const graphqlSchema = buildSchema(`
 
     type RootQuery {
         offers: [Offer!]!
+        offerDetails(offerId: ID!): Offer!
         makes: [Make!]!
         models(makeId: ID!): [Model!]!
         fuels: [Fuel!]!

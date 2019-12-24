@@ -3,12 +3,22 @@ import cars from '../../../cars.json'
 
 import OfferCard from '../../Shared/OfferCard'
 
-import { isStringInText } from '../../../logic/helpers';
+import { getOffers } from '../../../logic/graphql/offer';
+// import { formatNumber } from '../../../logic/helpers';
 
 class Body extends Component {
 
   state = {
-    cars: cars
+    cars: cars,
+    offers: [],
+  }
+  
+  componentDidMount = async () => {
+    const offers = await getOffers();
+    this.setState({
+      offers
+    })
+    console.log(this.state.offers);
   }
 
   isFilterInputIn (field) {
@@ -18,12 +28,12 @@ class Body extends Component {
   render() {
     return (
       <div className="Body">
-        { this.state.cars
-            .filter(car => 
-              isStringInText(this.props.filterInput, car.make) || 
-              isStringInText(this.props.filterInput, car.model) )
-            .map( car => 
-              <OfferCard car={car} key={car.id} /> )
+        { this.state.offers
+            // .filter(car => 
+            //   isStringInText(this.props.filterInput, car.make) || 
+            //   isStringInText(this.props.filterInput, car.model) )
+            .map( offer => 
+              <OfferCard offer={offer} key={offer._id} /> )
         }
       </div>
     );
