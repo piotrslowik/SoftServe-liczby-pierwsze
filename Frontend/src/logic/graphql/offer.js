@@ -5,7 +5,7 @@ import { arrayToGraphQLString } from '../helpers';
 export const addOffer = async (makeId, modelId, gen, fuelId, year, kms, volume, power, price, shortDesc, longDesc, images) => {
 
     try {
-    const imagesUrls = await getImagesUrls(images).then(console.log('ready'));
+    const imagesUrls = await getImagesUrls(images);
 
     const date = new Date();
     const query = `
@@ -55,7 +55,7 @@ const uploadImgToCloudinary = async img => {
         }
 
         const result = await Axios.post('http://localhost:8000/upload/images', data, config)
-        
+        console.log('result data \n', result.data)
         return result.data;
     }
     catch (error) {
@@ -64,17 +64,13 @@ const uploadImgToCloudinary = async img => {
 }
 
 const getImagesUrls = async images => {
-    let imagesUrls = [];
-
     try {
-        imagesUrls = images.map(async img => uploadImgToCloudinary(img));
+        return Promise.all(images.map(async img => await uploadImgToCloudinary(img)));
     }
     catch (error) {
         console.error('Could not upload images to Cloudinary', error);
+        return [];
     }
-
-    console.log(imagesUrls)
-    return imagesUrls;
 }
 
 export const getOffers = async () => {
