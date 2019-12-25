@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import ImageGallery from 'react-image-gallery';
 
 import Header from '../../components/Partials/Header';
+import Loader from '../../components/Shared/Loader';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendarAlt, faForward, faCube, faRoad, faMoneyBillWave } from '@fortawesome/free-solid-svg-icons'
@@ -61,13 +62,11 @@ const Offer = (props) => {
     }
     
     return (
-        (isLoading
-        ?   <div className="Offer">
-                <p>Loading</p>
-            </div>
-        :   <div className="Offer flex-column-center">
-                <Header />
-                <div className="Offer-main">
+        <div className="Offer flex-column-center">
+            <Header />
+            {isLoading
+            ?   <Loader text="Pobieranie danych" />
+            :   <><div className="Offer-main">
                     <ImageGallery items={images} />
                     <div className="Offer-data">
                         <p className="Offer-data__name">
@@ -99,9 +98,9 @@ const Offer = (props) => {
                     <p className="Offer-description__text">
                         {offer.longDescription}
                     </p>
-                </div>
-            </div>
-        )
+                </div></>
+            }
+        </div>
     )
 }
 
