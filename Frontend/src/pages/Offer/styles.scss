@@ -24,15 +24,14 @@
         display: table;
         width: 100%;
         background: $light-grey;
-        margin: 10px;
-        border-radius: 10px;
         padding: 15px;
         font-size: 1.4rem;
         @media (min-width: $tablet) {
             font-size: 2rem;
         }
         @media (min-width: $desktop) {
-            margin-left: 30px;
+            border-radius: 10px;
+            margin: 10px 10px 10px 30px;
         }
         p {
             margin: 10px;
@@ -41,7 +40,7 @@
             font-weight: 500;
             font-size: 1.3em;
         }
-        &__icon {
+        .IconAndText {
             min-width: 44px;
         }
     }
