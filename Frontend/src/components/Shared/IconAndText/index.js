@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faForward } from '@fortawesome/free-solid-svg-icons'
 
 const IconAndText = ({
     icon,
@@ -18,7 +17,7 @@ const IconAndText = ({
 }
 
 IconAndText.propTypes = {
-    icon: PropTypes.instanceOf(typeof faForward).isRequired,
+    icon: PropTypes.any.isRequired,
     text: PropTypes.string.isRequired,
 }
 

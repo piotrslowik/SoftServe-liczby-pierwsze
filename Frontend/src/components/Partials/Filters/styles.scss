@@ -2,62 +2,68 @@
 
 .Filters {
     display: flex;
-    justify-content: center;
-    padding-top: 20px;
-    width: 100%;
-    height: 50px;
-    z-index: -1;
-    position: relative;
-    top: -50px;
-    height: 0;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 460px;
+    padding: 20px;
+    background-color: $dark-grey2;
+    position: absolute;
+    left: -460px;
+    top: 100px;
     @media (max-width: $desktop) {
         display: none;
+    }
+
+    &--hidden {
+        animation-name: hideFilters;
+        animation-duration: .7s;
+        animation-fill-mode: both;
+    }
+
+    .Range {
+        input {
+            width: 120px;
+        }
+    }
+
+    .LabelledSelect, .Range {
+        margin-bottom: 12px;
     }
 
     .Label {
         color: white;
     }
 
+    &--visible {
+        animation-name: showFilters;
+        animation-duration: .7s;
+        animation-fill-mode: both;
+    }
+
     .LabelledSelect select{
         padding: 2px;
     }
-}
 
-.Filters--hidden {
-    animation-name: hideFilters;
-    animation-duration: .7s;
-    animation-fill-mode: both;
-}
-
-.Filters--visible {
-    animation-name: showFilters;
-    animation-duration: .7s;
-    animation-fill-mode: both;
-}
-
-.Filters div:not(:first-child) {
-    margin-left: 50px;
+    .Button {
+        align-self: center;
+        margin-top: 20px;
+    }
 }
 
 @keyframes showFilters {
     0% {
-        top: -50px;
-        height: 0;
+        left: -460px;
     }
     100% {
-        top: 0;
-        height: 50px;
-        z-index: 0;
+        left: 0;
     }
 }
 
 @keyframes hideFilters {
     0% {
-        top: 0;
-        height: 50px;
+        left: 0;
     }
     100% {
-        top: -50px;
-        height: 0;
+        left: -460px;
     }
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Filters from '../Filters';
-// import ModalAddCar from '../../Modals/AddCar';
 import ModalRegister from '../../Modals/Register';
 import ModalLogin from '../../Modals/Login';
 import ModalAdmin from '../../Modals/Admin';
@@ -42,7 +41,6 @@ class Header extends Component {
                     </div>
                 </div>
                 {this.state.isModalVisible_AddCar
-                  // ? <ModalAddCar onCloseModal={this.closeModal} header="Nowe ogłoszenie" />
                   ? <ModalAdmin onCloseModal={this.closeModal} header="Panel administratora" />
                   : null}
                 {this.state.isModalVisible_Register
@@ -51,7 +49,7 @@ class Header extends Component {
                 {this.state.isModalVisible_Login
                   ? <ModalLogin onCloseModal={this.closeModal} header="Logowanie" />
                   : null}
-                {/* <Filters /> */}
+                <Filters />
             </div>
         );
     }
@@ -79,7 +77,10 @@ class Header extends Component {
       }
     
       showModal = modal => {
-        document.body.style = 'overflow: hidden; padding-right: 20px;';
+        document.body.style.overflow = 'hidden';
+        if (document.documentElement.scrollHeight > window.outerHeight) {
+          document.body.style.paddingRight = '20px';
+        }
         this.setState (
           {
             [`isModalVisible_${modal}`]: true

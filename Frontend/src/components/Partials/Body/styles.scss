@@ -7,13 +7,16 @@
   width: 100%;
   margin-bottom: 70px;
 
-  .OfferCard {
+  .OfferCard-Link {
+    cursor: pointer;
     margin-top: 10px;
+    width: 100%;
     @media (min-width: $tablet) {
       margin-top: 20px;
     }
     @media (min-width: $desktop) {
       margin-top: 30px;
+      width: 1000px;
     }
   }
 }

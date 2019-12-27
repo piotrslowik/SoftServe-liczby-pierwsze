@@ -10,19 +10,28 @@ const Body = () => {
   const [offers, setOffers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   
-  useEffect(async () => {
-    const offers = await getOffers();
-    setOffers(offers);
-    setIsLoading(false);
-  }, [])
+  useEffect(() => {
+    fetchOffers();
+  }, []);
+  
+  const fetchOffers = async () => {
+    try {
+      const result = await getOffers();
+      setOffers(result);
+      setIsLoading(false);
+    }
+    catch (error) {
+      console.error('Could not fetch offers', error);
+    }
+}
 
   return (
     <div className="Body">
       {isLoading
       ? <Loader text="Pobieram oferty" />
-      :  offers.map( offer => {
-          return <OfferCard offer={offer} key={offer._id} /> })
-        
+      : offers.map( offer => {
+          return <OfferCard offer={offer} key={offer._id} />
+        })
       }
     </div>
   );
