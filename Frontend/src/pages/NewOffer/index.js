@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from "react-router"
 
 import LabelledSelect from '../../components/Shared/Fields/LabelledSelect';
@@ -11,22 +11,22 @@ import Loader from '../../components/Shared/Loader';
 import Header from '../../components/Partials/Header';
 import ImageInput from '../../components/Partials/ImagesInput';
 
-import { getMakes } from '../../logic/graphql/make';
 import { getModels } from '../../logic/graphql/model';
-import { getFuels } from '../../logic/graphql/fuel';
 import { addOffer } from '../../logic/graphql/offer';
-import {isObjectEmpty } from '../../logic/helpers';
+import { isObjectEmpty } from '../../logic/helpers';
+
+import dataContext from '../../context/data-context';
 
 const NewOffer = () => {
 
     const history = useHistory();
 
-    const [makes, setMakes] = useState([{text: 'Wczytuję...', id: 'id'}]);
+    const { fuels, makes } = useContext(dataContext);
+
     const [make, setMake] = useState({});
     const [models, setModels] = useState([{text: 'Wybierz markę', id: 'id'}]);
     const [model, setModel] = useState({});
     const [generation, setGeneration] = useState('');
-    const [fuels, setFuels] = useState([{text: 'Wczytuję...', id: 'id'}]);
     const [fuel, setFuel] = useState({});
     const [year, setYear] = useState(null);
     const [kms, setKms] = useState(null);
@@ -39,51 +39,26 @@ const NewOffer = () => {
     const [isAddingOffer, setIsAddingOffer] = useState(false);
  
     useEffect(() => {
-        fetchMakes();
-        fetchFuels();
-    }, []);
-    useEffect(() => {
         fetchModels(make)
     }, [make]);
 
-    const fetchMakes = async () => {
-        const makes = await getMakes();
-        if (makes) {
-            makes.unshift(addPlaceholder('make'));
-            setMakes(makes.map(make => {return {
-                text: make.make,
-                id: make._id,
-            }}));
-        } else return;
-    };
-
     const fetchModels = async make => {
-        if (isObjectEmpty(make)) {
+        if (!isObjectEmpty(make)) {
             const models = await getModels(make.id);
-            models.unshift(addPlaceholder('model'));
-            setModels(models.map(model => {return {
-                text: model.model,
-                id: model._id,
-            }}));
+            setModels(models);
         }
     };
 
-    const fetchFuels = async () => {
-        const fuels = await getFuels();
-        if (fuels) {
-            fuels.unshift(addPlaceholder('fuel'));
-            setFuels(fuels.map(fuel => {return {
-                text: fuel.fuel,
-                id: fuel._id,
-            }}));
-        } else return;
-    };
-
-    const addPlaceholder = field => {
-        return({
-            [field]: 'Wybierz',
-            _id: 'id',
+    const formatArray = (arr, field) => {
+        const newArr = arr.map(el => {return {
+            text: el[field],
+            id: el._id,
+        }});
+        newArr.unshift({
+            text: 'Wybierz',
+            id: 0,
         });
+        return newArr;
     }
 
     const handleMakeSelect = make => {
@@ -168,10 +143,10 @@ const NewOffer = () => {
             <h1>Nowe ogłoszenie</h1>
             <div className="NewOffer-inputs flex-column-center">
                 <div className="NewOffer-grid">
-                    <LabelledSelect values={makes} label="Marka" onChange={handleMakeSelect} />
-                    <LabelledSelect values={models} label="Model" onChange={handleModelSelect} />
+                    <LabelledSelect values={formatArray(makes, 'make')} label="Marka" onChange={handleMakeSelect} />
+                    <LabelledSelect values={formatArray(models, 'model')} label="Model" onChange={handleModelSelect} />
                     <LabelledInput label="Generacja" value={generation} onChange={handleGenerationInput} placeholder="np. II albo (W204)" />
-                    <LabelledSelect values={fuels} label="Paliwo" onChange={handleFuelSelect} />
+                    <LabelledSelect values={formatArray(fuels, 'fuel')} label="Paliwo" onChange={handleFuelSelect} />
                     <LabelledInput type="number" label="Rocznik" value={year} onChange={handleYearInput} min={1900} max={date.getFullYear()} placeholder="Rok produkcji" />
                     <LabelledInput type="number" label="Przebieg" value={kms} onChange={handleKmsInput} min={0} 
                     placeholder="Wartość w km" />

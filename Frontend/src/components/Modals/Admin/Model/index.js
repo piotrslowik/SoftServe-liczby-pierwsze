@@ -29,7 +29,7 @@ const ManageModel = () => {
     }, [makeToListModels]);
 
     const fetchModels = async make => {
-        if (isObjectEmpty(make)) {
+        if (!isObjectEmpty(make)) {
             const models = await getModels(make.id);
             setModels(models.map(model => {return {
                 text: model.model,

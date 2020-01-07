@@ -13,7 +13,7 @@ export const isStringInText = (string, text) => {
     return text.toLowerCase().indexOf(string.toLowerCase()) !== -1
 }
 export const isObjectEmpty = obj => {
-    return Object.entries(obj).length !== 0;
+    return Object.entries(obj).length === 0;
 }
 export const arrayToGraphQLString = array => {
     return array.map(el => `"${el}"`);
