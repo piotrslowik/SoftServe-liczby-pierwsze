@@ -14,6 +14,7 @@ import { getOrigins } from './logic/graphql/origin';
 import { getMakes } from './logic/graphql/make';
 
 import './stylesheets/App.scss';
+import { LocalStorageGet, LocalStorageSave } from './logic/helpers';
 
 const App = () => {
   const [fuels, setFuels] = useState([]);
@@ -23,18 +24,27 @@ const App = () => {
   useEffect(() => {
     (async () => {
       try {
-        const fuels = await getFuels();
-        const origins = await getOrigins();
-        const makes = await getMakes();
-        setFuels(fuels);
-        setOrigins(origins);
-        setMakes(makes);
+        await handleDataInit('fuels', getFuels, setFuels);
+        await handleDataInit('origins', getOrigins, setOrigins);
+        await handleDataInit('makes', getMakes, setMakes);
       }
       catch (error) {
         throw error;
       }
     })();
-  }, [])
+  }, []);
+
+  const handleDataInit = async (array, getter, setter) => {
+    let result = JSON.parse(LocalStorageGet(array));
+    if (result) {
+      setter(result);
+    }
+    else {
+      result = await getter();
+      LocalStorageSave(array, JSON.stringify(result));
+      setter(result);
+    }
+  }
 
   return (
     <Router>

@@ -31,3 +31,9 @@ export const formatNumber = number => {
     }
     return output;
 }
+export const LocalStorageGet = key => {
+    return localStorage.getItem(key);
+}
+export const LocalStorageSave = (key, value) => {
+    return localStorage.setItem(key, value);
+}
