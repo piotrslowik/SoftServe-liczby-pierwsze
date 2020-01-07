@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router"
 
 import LabelledSelect from '../../components/Shared/Fields/LabelledSelect';
 import LabelledInput from '../../components/Shared/Fields/LabelledInput';
 import Button from '../../components/Shared/Fields/Button';
 import Textarea from '../../components/Shared/Fields/Textarea';
+
+import Loader from '../../components/Shared/Loader';
 
 import Header from '../../components/Partials/Header';
 import ImageInput from '../../components/Partials/ImagesInput';
@@ -15,6 +18,8 @@ import { addOffer } from '../../logic/graphql/offer';
 import {isObjectEmpty } from '../../logic/helpers';
 
 const NewOffer = () => {
+
+    const history = useHistory();
 
     const [makes, setMakes] = useState([{text: 'Wczytuję...', id: 'id'}]);
     const [make, setMake] = useState({});
@@ -31,6 +36,7 @@ const NewOffer = () => {
     const [shortDesc, setShortDesc] = useState('');
     const [longDesc, setLongDesc] = useState('');
     const [images, setImages] = useState([]);
+    const [isAddingOffer, setIsAddingOffer] = useState(false);
  
     useEffect(() => {
         fetchMakes();
@@ -126,27 +132,38 @@ const NewOffer = () => {
         const newImages = images.filter(image => image.id !== id);
         setImages(newImages);
     }
-    const handleAddOffer = () => {
-        addOffer(
-            make.makeId,
-            model.modelId,
-            generation,
-            fuel.fuelId,
-            year,
-            kms,
-            volume,
-            power,
-            price,
-            shortDesc,
-            longDesc,
-            images.map(image => image.file)
-        );
+    const handleAddOffer = async () => {
+        try {
+            setIsAddingOffer(true);
+            const result = await addOffer(
+                make.id,
+                model.id,
+                generation,
+                fuel.id,
+                year,
+                kms,
+                volume,
+                power,
+                price,
+                shortDesc,
+                longDesc,
+                images.map(image => image.file)
+            );
+            history.push(`offer/${result._id}`);
+        }
+        catch (error) {
+            console.error('Adding new offer failed', error);
+        }
     }
 
     const date = new Date();
 
     return (
-        <div className="NewOffer flex-column-center">
+        (isAddingOffer)
+        
+        ? <Loader text="Dodawanie oferty..." />
+
+        : <div className="NewOffer flex-column-center">
             <Header />
             <h1>Nowe ogłoszenie</h1>
             <div className="NewOffer-inputs flex-column-center">

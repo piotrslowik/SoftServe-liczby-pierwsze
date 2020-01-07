@@ -5,32 +5,32 @@ import { arrayToGraphQLString } from '../helpers';
 export const addOffer = async (makeId, modelId, gen, fuelId, year, kms, volume, power, price, shortDesc, longDesc, images) => {
 
     try {
-    const imagesUrls = await getImagesUrls(images);
+        const imagesUrls = await getImagesUrls(images);
 
-    const date = new Date();
-    const query = `
-        mutation {
-            createOffer(offerInput:{
-                make: "${makeId}",
-                model: "${modelId}",
-                generation: "${gen}",
-                fuel: "${fuelId}",
-                year: ${year},
-                kms: ${kms},
-                volume: ${volume},
-                power: ${power},
-                price: ${price},
-                shortDescription: "${shortDesc}",
-                longDescription: "${longDesc}",
-                photos: [${arrayToGraphQLString(imagesUrls)}],
-                date: "${date.toISOString()}",
-                creator: "5da4fd3696b86f186c140515",
-            })
-            {
-                photos
+        const date = new Date();
+        const query = `
+            mutation {
+                createOffer(offerInput:{
+                    make: "${makeId}",
+                    model: "${modelId}",
+                    generation: "${gen}",
+                    fuel: "${fuelId}",
+                    year: ${year},
+                    kms: ${kms},
+                    volume: ${volume},
+                    power: ${power},
+                    price: ${price},
+                    shortDescription: "${shortDesc}",
+                    longDescription: "${longDesc}",
+                    photos: [${arrayToGraphQLString(imagesUrls)}],
+                    date: "${date.toISOString()}",
+                    creator: "5da4fd3696b86f186c140515",
+                })
+                {
+                    _id
+                }
             }
-        }
-    `;
+        `;
         const result = await Axios.post('http://localhost:8000/graphql', {
             query: query,
             headers: {
@@ -55,7 +55,6 @@ const uploadImgToCloudinary = async img => {
         }
 
         const result = await Axios.post('http://localhost:8000/upload/images', data, config)
-        console.log('result data \n', result.data)
         return result.data;
     }
     catch (error) {
